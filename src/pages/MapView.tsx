@@ -5,6 +5,7 @@ import { computeUnlocked } from '../utils/unlock'
 function polarToCartesian(r:number, theta:number) { return { x: r * Math.cos(theta), y: r * Math.sin(theta) } }
 
 export default function MapView() {
+  const base = import.meta.env.BASE_URL;
   const apps = getAllApps().sort((a,b)=>a.week-b.week)
   const unlocked = computeUnlocked()
 
@@ -31,7 +32,7 @@ export default function MapView() {
           {points.map(p => (
             <g key={p.slug}>
               <circle cx={p.x} cy={p.y} r="10" fill={p.week <= unlocked ? 'url(#glow)' : '#333'} />
-              <a href={`/apps/${p.slug}`}>
+              <a href={`${base}apps/${p.slug}`}>
                 <text x={p.x + 14} y={p.y + 4} fontSize="10" fill="#fff">{p.week.toString().padStart(2,'0')} {p.title}</text>
               </a>
             </g>

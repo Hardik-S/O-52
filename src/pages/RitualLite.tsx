@@ -76,7 +76,7 @@ export default function RitualLite() {
     - ${pick(GESTURES,3).join('\n- ')}
     `
     const id = saveDoc(text)
-    window.location.href = `/archive#doc-${id}`
+    window.location.href = import.meta.env.BASE_URL + `archive#doc-${id}`
   }
 
   return (
