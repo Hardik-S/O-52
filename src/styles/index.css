@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --theme-accent: #f9a8d4;
+  --theme-bg1: #0b0a0f;
+  --theme-bg2: #12111a;
+}
+
+.theme-cats { --theme-accent: theme(colors.brand.cat); }
+.theme-space { --theme-accent: theme(colors.brand.space); }
+.theme-data { --theme-accent: theme(colors.brand.data); }
+
+.bg-grad {
+  background: radial-gradient(80% 120% at 30% 20%, var(--theme-bg1), var(--theme-bg2));
+}
+
+.accent-ring {
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.08), 0 0 0 6px color-mix(in oklab, var(--theme-accent), transparent 80%);
+}
+
+/* Simple prose for AppDetail */
+.prose :where(h1,h2,h3,h4){margin-top:1.25em;margin-bottom:.5em}
+.prose :where(p,ul,ol,pre){margin:.75em 0}
+.prose :where(a){text-decoration:underline}
